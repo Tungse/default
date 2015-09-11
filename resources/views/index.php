@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
     <head>
         <title>Laravel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.min.css" />
-        <script language="Javascript" type="text/Javascript" src="index.min.js"></script>
+        <script language="Javascript" type="text/Javascript" src="bundle.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
         <style>
@@ -43,15 +43,19 @@
             }
         </style>
     </head>
-    <body>
+    <body ng-app="testApp" ng-controller="ArticlesCtrl">
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
                 <div class="quote"></div>
+                <table class="table">
+                    <tr ng-repeat="article in articles | filter:search">
+                        <td>{{article.id}}</td>
+                        <td>{{article.name}}</td>
+                        <td>{{article.price}}</td>
+                    </tr>
+                </table>
             </div>
-            <br />
-            <input type="text" ng-model="search">
-            <p>Du suchst gerade nach: {{search}}</p>
         </div>
         <script type='text/javascript' id="__bs_script__">//<![CDATA[
             document.write("<script async src='http://HOST:1337/browser-sync/browser-sync-client.2.8.2.js'><\/script>".replace("HOST", location.hostname));

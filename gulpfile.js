@@ -14,7 +14,8 @@ var streamify = require('gulp-streamify');
 
 gulp.task('browser-sync', function() 
 {
-    browserSync.init({
+    browserSync.init(
+    {
         host: 'test.local',
         port: 1337,
         logSnippet: false,
@@ -41,12 +42,12 @@ gulp.task('styles', function()
 
 gulp.task('scripts', function() 
 {
-    return browserify('./resources/assets/js/index.js')
+    return browserify('./resources/assets/js/app.js')
         .bundle()
-        .pipe(source('index.min.js'))
+        .pipe(source('bundle.min.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
-        .pipe(streamify(uglify()))
+        // .pipe(streamify(uglify({mangle: false})))
         .pipe(gulp.dest('./public/'))
         .pipe(browserSync.reload({stream:true}));
 });
