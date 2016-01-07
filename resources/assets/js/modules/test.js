@@ -2,7 +2,7 @@ module.exports =
 {
 	sayHelloInEnglish: function() 
 	{
-		return 'Hello';
+		return 'Hello....';
 	},
        
 	sayHelloInSpanish: function() 
